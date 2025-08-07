@@ -4,8 +4,7 @@ VF2++ parallel implementation for graphs isomorphism check. The algorithm uses:
 	2. MPI as parallelization techonolgy;
 	2. makefile logic to link files and compile the project.
 
-/*******************************************************************************************************************************************************/
-The algorithm uses several text files, each with a graph inside, saved in the following format:
+The algorithm uses several text files, each with a graph inside, saved in the following format: <br/>
 
 <number of nodes>\b<total file lines>
 <source node 1>\t<neighbour_1>\b<neighbour_2>\b<neighbour_3>\b...\b<neighbour_N>\n
@@ -13,41 +12,35 @@ The algorithm uses several text files, each with a graph inside, saved in the fo
 ...\n
 <source node N>\t<neighbour_1>\b<neighbour_2>\b<neighbour_3>\b...\b<neighbour_N>\n
 
-Furthermore, the algorithm needs a secondary file, containing all the graph file's names, formatted as follow:
+Furthermore, the algorithm needs a secondary file, containing all the graph file's names, formatted as follow:<br/>
 
-<Token_graph_name.txt>\n
-<Pattern1_graph_name.txt>\n
-<Pattern2_graph_name.txt>\n
-<Pattern3_graph_name.txt>\n
-...\n
-<Pattern-n_graph_name.txt>\n
+<Token_graph_name.txt> <br/>
+<Pattern1_graph_name.txt><br/>
+<Pattern2_graph_name.txt><br/>
+<Pattern3_graph_name.txt><br/>
+...<br/>
+<Pattern-n_graph_name.txt><br/>
 
 N.B.: max number of files for the specific processor is 8 to achieve full parallel potential.
 
-
-/*******************************************************************************************************************************************************/	
 To run the algorithm, copy/paste the graphs in the specific format in the right folder, open a terminal console in
 the project folder and run the following commands:
 	a. make	(compile the project and generate the launcher file)*;
-	b. mpirun -n workers ./VF2pp_parallel <Graphs.txt> <OPTIONAL:VERBOSE>;
+	b. mpirun -n workers ./VF2pp_parallel Graphs.txt OPTIONAL:VERBOSE;
 	c. make clean (to remove the last compiled folder and launcher).
 
 The argument used in the command line are:
 	1. "workers", define the number of MPI workers (int in the range [1,8]);
 	2. "Graph.txt", is the name of the file containing all the graph file's name;
 	3. "VERBOSE", is an optional** argument used for printing useful information about the graph.
+ <br/>
 	
-* The "make" command used without argument, set by default the optimization to -O2. To modify the optimization use the command:
-	make OPTIMIZATION="-Ox"
-  and set "x" to the value of optimization needed, in the range [1,4].
+* The "make" command used without argument, set by default the optimization to -O2. To modify the optimization use the command: <br/>
+  make OPTIMIZATION="-Ox" and set "x" to the value of optimization needed, in the range [1,4]. <br/>
 
-** Standard value set to 0. If omitted, no information will be printed. If graph info are needed set this value to 1.
-  Other values will be rejected and the program will continue as if the value was set to 0.
+** Standard value set to 0. If omitted, no information will be printed. If graph info are needed set this value to 1. Other values will be rejected and the program will continue as if the value was set to 0.
   
-/*******************************************************************************************************************************************************/
-Examples (after launching "make"):
 
-mpirun -n 4 ./VF2pp_parallel Filenames.txt 0	// 4 MPI worker, VERBOSE set to 0 -> do not print additional info
 mpirun -n 8 ./VF2pp_parallel Filenames.txt 1	// 8 MPI worker, VERBOSE set to 1 -> Suppressed to 0: do not print additional info
 mpirun -n 2 ./VF2pp_parallel Filenames.txt	// 2 MPI worker, VERBOSE not defined (remain set to 0)
 mpirun -n 8 ./VF2pp_parallel Filenames.txt foo  // 8 MPI worker, invalid VERBOSE argument -> print a WARNING message and treat VERBOSE as if set to 0
