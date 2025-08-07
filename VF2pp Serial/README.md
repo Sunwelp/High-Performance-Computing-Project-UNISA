@@ -52,10 +52,10 @@ save in a .log file though the stderr.
 
 /************************************************** EXAMPLES ***************************************************************/
 - Single run example commands:
-
+- 
     ./VF2pp_serial G_n10_c30.txt G_Iso_n10_c30.txt 0    	// Set VERBOSE to 0 -> do not print additional info
-    ./VF2pp_serial G_n10_c30.txt G_Iso_n10_c30.txt 1    	// Set VERBOSE to 1 -> print additional info
-    ./VF2pp_serial G_n10_c30.txt G_Iso_n10_c30.txt	    	// VERBOSE not defined (remain set to 0)
+  	./VF2pp_serial G_n10_c30.txt G_Iso_n10_c30.txt 1    	// Set VERBOSE to 1 -> print additional info
+  	./VF2pp_serial G_n10_c30.txt G_Iso_n10_c30.txt	    	// VERBOSE not defined (remain set to 0)
     ./VF2pp_serial G_n10_c30.txt G_Iso_n10_c30.txt foo		// invalid argument -> print a WARNING message and treat VERBOSE equal to 0
 
 - Shell script example commands:
