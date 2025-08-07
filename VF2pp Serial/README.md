@@ -4,7 +4,6 @@ VF2++ implementation for graphs isomorphism check. The algorithm uses:
 	2. makefile logic to link files and compile the project;
 	3. .sh script for testing and executing multiple runs.
 
-/******************************************************************************************************************************/
 The algorithm uses two text files, each with a graph inside, saved in the following format:
 
 <number of nodes>\b<total file lines>
@@ -12,9 +11,7 @@ The algorithm uses two text files, each with a graph inside, saved in the follow
 <source node 2>\t<neighbour_1>\b<neighbour_2>\b<neighbour_3>\b...\b<neighbour_N>\n
 ...\n
 <source node N>\t<neighbour_1>\b<neighbour_2>\b<neighbour_3>\b...\b<neighbour_N>\n
-
-
-/******************************************************************************************************************************/	
+	
 To run the algorithm, copy/paste the graphs in the specific format in the right folder, open a terminal console in
 the project folder and run the following commands:
 	a. make (compile the project and generate the launcher file)*;
