@@ -6,11 +6,11 @@ VF2++ parallel implementation for graphs isomorphism check. The algorithm uses:
 
 The algorithm uses several text files, each with a graph inside, saved in the following format: <br/>
 
-<number of nodes>\b<total file lines>
-<source node 1>\t<neighbour_1>\b<neighbour_2>\b<neighbour_3>\b...\b<neighbour_N>\n
-<source node 2>\t<neighbour_1>\b<neighbour_2>\b<neighbour_3>\b...\b<neighbour_N>\n
-...\n
-<source node N>\t<neighbour_1>\b<neighbour_2>\b<neighbour_3>\b...\b<neighbour_N>\n
+number_of_nodes total_file_lines <br/>
+source_node_1    neighbour_1 neighbour_2 neighbour_3 ... neighbour_N <br/>
+source_node_2    neighbour_1 neighbour_2 neighbour_3 ... neighbour_N <br/>
+... <br/>
+source_node_N    neighbour_1 neighbour_2 neighbour_3 ... neighbour_N <br/>
 
 Furthermore, the algorithm needs a secondary file, containing all the graph file's names, formatted as follow:<br/>
 
@@ -23,17 +23,17 @@ Furthermore, the algorithm needs a secondary file, containing all the graph file
 
 N.B.: max number of files for the specific processor is 8 to achieve full parallel potential.
 
-To run the algorithm, copy/paste the graphs in the specific format in the right folder, open a terminal console in
-the project folder and run the following commands:
-	a. make	(compile the project and generate the launcher file)*;
-	b. mpirun -n workers ./VF2pp_parallel Graphs.txt OPTIONAL:VERBOSE;
-	c. make clean (to remove the last compiled folder and launcher).
+To run the algorithm, copy/paste the graphs in the specific format in the right folder, open a terminal console in the project folder and run the following commands:
+
+	a. make	(compile the project and generate the launcher file)*; <br/>
+	b. mpirun -n workers ./VF2pp_parallel Graphs.txt OPTIONAL:VERBOSE; <br/>
+	c. make clean (to remove the last compiled folder and launcher). <br/>
 
 The argument used in the command line are:
-	1. "workers", define the number of MPI workers (int in the range [1,8]);
+
+	1. "workers", define the number of MPI workers (int in the range [1,8]); <br/>
 	2. "Graph.txt", is the name of the file containing all the graph file's name;
 	3. "VERBOSE", is an optional** argument used for printing useful information about the graph.
- <br/>
 	
 * The "make" command used without argument, set by default the optimization to -O2. To modify the optimization use the command: <br/>
   make OPTIMIZATION="-Ox" and set "x" to the value of optimization needed, in the range [1,4]. <br/>
