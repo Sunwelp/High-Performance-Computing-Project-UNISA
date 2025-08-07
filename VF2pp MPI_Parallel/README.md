@@ -25,25 +25,19 @@ N.B.: max number of files for the specific processor is 8 to achieve full parall
 
 To run the algorithm, copy/paste the graphs in the specific format in the right folder, open a terminal console in the project folder and run the following commands:
 
-	a. make	(compile the project and generate the launcher file)*; <br/>
-	b. mpirun -n workers ./VF2pp_parallel Graphs.txt OPTIONAL:VERBOSE; <br/>
-	c. make clean (to remove the last compiled folder and launcher). <br/>
+	a. make	(compile the project and generate the launcher file)*;
+	b. mpirun -n workers ./VF2pp_parallel Graphs.txt OPTIONAL:VERBOSE;
+	c. make clean (to remove the last compiled folder and launcher).
 
 The argument used in the command line are:
 
-	1. "workers", define the number of MPI workers (int in the range [1,8]); <br/>
+	1. "workers", define the number of MPI workers (int in the range [1,8]);
 	2. "Graph.txt", is the name of the file containing all the graph file's name;
 	3. "VERBOSE", is an optional** argument used for printing useful information about the graph.
 	
 (*) The "make" command used without argument, set by default the optimization to -O2. To modify the optimization use the command: <br/>
   make OPTIMIZATION="-Ox" and set "x" to the value of optimization needed, in the range [1,4]. <br/>
 
-(**) Standard value set to 0. If omitted, no information will be printed. If graph info are needed set this value to 1. Other values will be rejected and the program will continue as if the value was set to 0.
-  
+(**) Standard value set to 0. If omitted, no information will be printed. If graph info are needed set this value to 1. Other values will be rejected and the program will continue as if the value was set to 0.<br/>
 
-mpirun -n 8 ./VF2pp_parallel Filenames.txt 1	// 8 MPI worker, VERBOSE set to 1 -> Suppressed to 0: do not print additional info
-mpirun -n 2 ./VF2pp_parallel Filenames.txt	// 2 MPI worker, VERBOSE not defined (remain set to 0)
-mpirun -n 8 ./VF2pp_parallel Filenames.txt foo  // 8 MPI worker, invalid VERBOSE argument -> print a WARNING message and treat VERBOSE as if set to 0
-
-NOTE: if the number of graphs in the file exceed the number of workers set, the extra graphs will be ignored.
-Similarly, if there are more workers than graphs, the extra worker will be dormant. 
+NOTE: if the number of graphs in the file exceed the number of workers set, the extra graphs will be ignored. Similarly, if there are more workers than graphs, the extra worker will be dormant. 
