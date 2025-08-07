@@ -1,0 +1,8 @@
+G_n1000_c60.txt
+G_Iso_n1000_c60_1.txt
+G_Iso_n1000_c60_2.txt
+G_Iso_n1000_c60_3.txt
+G_Iso_n1000_c60_4.txt
+G_Iso_n1000_c60_5.txt
+G_Iso_n1000_c60_6.txt
+G_Iso_n1000_c60_7.txt
