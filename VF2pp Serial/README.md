@@ -33,10 +33,10 @@ The argument used in the command line are:
   
 *** Standard value set to 0. If omitted, no information will be printed. If graph info are needed set this value to 1.
    Other values will be rejected and the program will continue as if the value was set to 0.
-/******************************************************************************************************************************/
+   
 For multiple runs and testing, the bash script in the folder can be used. Simply write in the terminal:
 
-./measures.sh <#ofRuns> <tokenGraph.txt> <patternGraph.txt> <OPTIONAL:OPTIMIZATION> <OPTIONAL:METRICS> <OPTIONAL:VERBOSE>
+./measures.sh #ofRuns tokenGraph.txt patternGraph.txt OPTIONAL:OPTIMIZATION OPTIONAL:METRICS OPTIONAL:VERBOSE
 
 with the adequate number of arguments, which are:
 	
@@ -49,20 +49,3 @@ with the adequate number of arguments, which are:
 	
 Metrics and log info are saved in separated file: metrics go in the .CSV file though stdout, while logging info will be
 save in a .log file though the stderr.
-
-/************************************************** EXAMPLES ***************************************************************/
-- Single run example commands:
-- 
-    ./VF2pp_serial G_n10_c30.txt G_Iso_n10_c30.txt 0    	// Set VERBOSE to 0 -> do not print additional info
-  	./VF2pp_serial G_n10_c30.txt G_Iso_n10_c30.txt 1    	// Set VERBOSE to 1 -> print additional info
-  	./VF2pp_serial G_n10_c30.txt G_Iso_n10_c30.txt	    	// VERBOSE not defined (remain set to 0)
-    ./VF2pp_serial G_n10_c30.txt G_Iso_n10_c30.txt foo		// invalid argument -> print a WARNING message and treat VERBOSE equal to 0
-
-- Shell script example commands:
-
-   ./measures.sh 2 G_n10_c30.txt G_Iso_n10_c30.txt -O1 results.csv 1   // Full command with 2 execution, set OPTIMIZATION, .CSV file name and VERBOSE mode
-   ./measures.sh 10 G_n10_c30.txt G_Iso_n10_c30.txt 		           // Executes 10 run, with default optional values
-
-   
-    
-
