@@ -6,11 +6,11 @@ VF2++ implementation for graphs isomorphism check. The algorithm uses:
 
 The algorithm uses two text files, each with a graph inside, saved in the following format:
 
-<number of nodes>\b<total file lines>
-<source node 1>\t<neighbour_1>\b<neighbour_2>\b<neighbour_3>\b...\b<neighbour_N>\n
-<source node 2>\t<neighbour_1>\b<neighbour_2>\b<neighbour_3>\b...\b<neighbour_N>\n
-...\n
-<source node N>\t<neighbour_1>\b<neighbour_2>\b<neighbour_3>\b...\b<neighbour_N>\n
+number_of_nodes total_file_lines
+source_node_1    neighbour_1 neighbour_2 neighbour_3 ... neighbour_N
+source_node_2    neighbour_1 neighbour_2 neighbour_3 ... neighbour_N
+...
+source_node_N    neighbour_1 neighbour_2 neighbour_3 ... neighbour_N
 	
 To run the algorithm, copy/paste the graphs in the specific format in the right folder, open a terminal console in
 the project folder and run the following commands:
@@ -61,7 +61,7 @@ save in a .log file though the stderr.
 - Shell script example commands:
 
    ./measures.sh 2 G_n10_c30.txt G_Iso_n10_c30.txt -O1 results.csv 1   // Full command with 2 execution, set OPTIMIZATION, .CSV file name and VERBOSE mode
-   ./measures.sh 10 G_n10_c30.txt G_Iso_n10_c30.txt 		       // Executes 10 run, with default optional values
+   ./measures.sh 10 G_n10_c30.txt G_Iso_n10_c30.txt 		           // Executes 10 run, with default optional values
 
    
     
