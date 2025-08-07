@@ -35,10 +35,10 @@ The argument used in the command line are:
 	2. "Graph.txt", is the name of the file containing all the graph file's name;
 	3. "VERBOSE", is an optional** argument used for printing useful information about the graph.
 	
-* The "make" command used without argument, set by default the optimization to -O2. To modify the optimization use the command: <br/>
+(*) The "make" command used without argument, set by default the optimization to -O2. To modify the optimization use the command: <br/>
   make OPTIMIZATION="-Ox" and set "x" to the value of optimization needed, in the range [1,4]. <br/>
 
-** Standard value set to 0. If omitted, no information will be printed. If graph info are needed set this value to 1. Other values will be rejected and the program will continue as if the value was set to 0.
+(**) Standard value set to 0. If omitted, no information will be printed. If graph info are needed set this value to 1. Other values will be rejected and the program will continue as if the value was set to 0.
   
 
 mpirun -n 8 ./VF2pp_parallel Filenames.txt 1	// 8 MPI worker, VERBOSE set to 1 -> Suppressed to 0: do not print additional info
