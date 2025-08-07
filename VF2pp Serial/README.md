@@ -6,39 +6,34 @@ VF2++ implementation for graphs isomorphism check. The algorithm uses:
 
 The algorithm uses two text files, each with a graph inside, saved in the following format:
 
-number_of_nodes total_file_lines
-source_node_1    neighbour_1 neighbour_2 neighbour_3 ... neighbour_N
-source_node_2    neighbour_1 neighbour_2 neighbour_3 ... neighbour_N
-...
-source_node_N    neighbour_1 neighbour_2 neighbour_3 ... neighbour_N
-	
-To run the algorithm, copy/paste the graphs in the specific format in the right folder, open a terminal console in
-the project folder and run the following commands:
-	a. make (compile the project and generate the launcher file)*;
-	b. mpirun -n worker ./VF2pp_serial <tokenGraph.txt> <patternGraph.txt> <OPTIONAL:VERBOSE>;
-	c. make clean (to remove the last compiled folder and launcher).
+number_of_nodes total_file_lines <br/>
+source_node_1    neighbour_1 neighbour_2 neighbour_3 ... neighbour_N <br/>
+source_node_2    neighbour_1 neighbour_2 neighbour_3 ... neighbour_N <br/>
+... <br/>
+source_node_N    neighbour_1 neighbour_2 neighbour_3 ... neighbour_N <br/>
 
-The argument used in the command line are:
-	1. "tokenGraph.txt", is the token** graph file's name;
-	2. "patternGraph.txt", is the pattern** graph file's name;
-	3. "VERBOSE", is an optional*** argument used for printing useful information about the graph.
+To run the algorithm, copy/paste the graphs in the specific format in the right folder, open a terminal console in the project folder and run the following commands: <br/>
+	a. make (compile the project and generate the launcher file)(a); <br/>
+	b. mpirun -n worker ./VF2pp_serial tokenGraph.txt patternGraph.txt OPTIONAL:VERBOSE; <br/>
+	c. make clean (to remove the last compiled folder and launcher). <br/>
 
-*   The "make" command used without argument, set by default the optimization to -O2. To modify the optimization use the command:
-	make OPTIMIZATION="-Ox"
-    and set "x" to the value of optimization needed, in the range [1,4].
+The argument used in the command line are: <br/>
+	1. "tokenGraph.txt", is the token(b) graph file's name; <br/>
+	2. "patternGraph.txt", is the pattern(b) graph file's name; <br/>
+	3. "VERBOSE", is an optional(c) argument used for printing useful information about the graph. <br/>
+
+The "make" command used without argument, set by default the optimization to -O2. To modify the optimization use the command: 
+make OPTIMIZATION="-Ox" and set "x" to the value of optimization needed, in the range [1,4]. <br/>
   
-**  The pattern/matching slang is used to differentiate between the main graph and the graphs to be tested:
-    the Token Graph is the main graph, while the Pattern graph is the graph that is tested if it is isomorph
-    to the Token Graph.
+The pattern/matching slang is used to differentiate between the main graph and the graphs to be tested: the Token Graph is the main graph, while the Pattern graph is the graph that is tested if it is isomorph to the Token Graph. <br/>
   
-*** Standard value set to 0. If omitted, no information will be printed. If graph info are needed set this value to 1.
-   Other values will be rejected and the program will continue as if the value was set to 0.
+Standard value set to 0. If omitted, no information will be printed. If graph info are needed set this value to 1. Other values will be rejected and the program will continue as if the value was set to 0. <br/>
    
-For multiple runs and testing, the bash script in the folder can be used. Simply write in the terminal:
+For multiple runs and testing, the bash script in the folder can be used. Simply write in the terminal: <br/>
 
-./measures.sh #ofRuns tokenGraph.txt patternGraph.txt OPTIONAL:OPTIMIZATION OPTIONAL:METRICS OPTIONAL:VERBOSE
+./measures.sh #ofRuns tokenGraph.txt patternGraph.txt OPTIONAL:OPTIMIZATION OPTIONAL:METRICS OPTIONAL:VERBOSE <br/>
 
-with the adequate number of arguments, which are:
+with the adequate number of arguments, which are: <br/>
 	
 	a. #ofRuns: define how many time the program will be executed;
 	b. tokenGraph.txt", is the token graph file's name;
@@ -47,5 +42,4 @@ with the adequate number of arguments, which are:
 	e. "METRICS", set the name for metrics CSV file;
 	f. "VERBOSE", is an optional argument used for printing useful information about the graph.
 	
-Metrics and log info are saved in separated file: metrics go in the .CSV file though stdout, while logging info will be
-save in a .log file though the stderr.
+Metrics and log info are saved in separated file: metrics go in the .CSV file though stdout, while logging info will be save in a .log file though the stderr.
